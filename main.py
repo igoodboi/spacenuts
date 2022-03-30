@@ -20,12 +20,26 @@ def player(x, y):
 
 running = True
 while running:
-
-    screen.fill((0, 206, 209))
-
+    screen.fill((0, 0, 0))
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                playerX -= 10
+                print("Left arrow is pressed")
+
+            elif event.key == pygame.K_RIGHT:
+                playerX += 10
+                print("Right arrow is pressed")
+
+            elif event.key == pygame.K_UP:
+                playerY -= 10
+                print("up arrow is pressed")
+
+            elif event.key == pygame.K_DOWN:
+                playerY += 10
+                print("down arrow is pressed")
 
     player(playerX, playerY)
     pygame.display.update()
